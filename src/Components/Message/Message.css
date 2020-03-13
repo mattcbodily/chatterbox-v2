@@ -1,0 +1,22 @@
+.message {
+    height: 100vh;
+    width: calc(100% - 175px);
+    background-color: #221e23;
+    position: relative;
+}
+
+.message-input {
+    height: 30px;
+    width: 94%; 
+    background-color: #343036;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -47%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: 0px 10px;
+}
