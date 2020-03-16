@@ -16,15 +16,24 @@ export default props => {
         .catch(err => console.log(err))
     }, [])
 
-    console.log(groups)
+    let mappedGroups = groups.map((group, i) => (
+        <div key={i} className='side-menu-group'>
+            <img src={group.group_image} alt={group.group_name} className='group-image'/>
+            <section>
+                <p>{group.group_name}</p>
+                <p>leedleleedlelee</p>
+            </section>
+        </div>
+    ))
 
     return (
         <div className='side-menu'>
             <div className='search-flex'>
                 <input className='search-bar' value={chatSearch} onChange={(e) => setChatSearch(e.target.value)}/>
                 <button className='create-group-btn' onClick={() => setFormView(true)}>+</button>
-                {formView ? <GroupForm user={props.user}/> : null}
             </div>
+                {mappedGroups}
+                {formView ? <GroupForm user={props.user}/> : null}
         </div>
     )
 }
