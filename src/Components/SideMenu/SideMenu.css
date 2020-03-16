@@ -15,9 +15,11 @@
 .search-bar {
     height: 35px;
     width: 65%;
+    box-sizing: border-box;
     border-radius: 10px;
     border: none;
     margin-right: 10px;
+    padding: 0px 10px;
     font-size: 1.25rem;
 }
 

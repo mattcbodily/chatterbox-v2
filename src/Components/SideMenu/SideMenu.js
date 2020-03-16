@@ -7,7 +7,7 @@ export default props => {
     return (
         <div className='side-menu'>
             <div className='search-flex'>
-                <input className='search-bar' value={chatSearch}/>
+                <input className='search-bar' value={chatSearch} onChange={(e) => setChatSearch(e.target.value)}/>
                 <button className='create-group-btn'>+</button>
             </div>
         </div>

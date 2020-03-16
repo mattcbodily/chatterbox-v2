@@ -30,4 +30,8 @@ app.post('/api/login', authCtrl.login);
 app.post('/api/register', authCtrl.register);
 app.get('/api/logout', authCtrl.logout);
 
+//groups
+app.get('/api/groups/:id', mainCtrl.getGroups);
+app.post('/api/groups', mainCtrl.createGroup);
+
 app.listen(port, () => console.log(`Server running on ${port}`));
