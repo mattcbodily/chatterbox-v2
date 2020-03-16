@@ -1,22 +1,23 @@
 .message {
     height: 100vh;
-    width: calc(100% - 225px);
+    width: calc(100% - 325px);
     background-color: #221e23;
     position: relative;
 }
 
 .message-input {
-    height: 30px;
-    width: 94%; 
+    height: 45px;
+    width: 95%; 
     background-color: #343036;
     color: #FFFFFF;
+    font-size: 1.25rem;
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     margin-left: -47%;
     box-sizing: border-box;
     border: none;
     border-radius: 8px;
     outline: none;
-    padding: 0px 10px;
+    padding: 0px 15px;
 }

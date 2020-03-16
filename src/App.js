@@ -5,7 +5,7 @@ import Message from './Components/Message/Message';
 import './App.css';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [user, setUser] = useState({});
 
   const getUser = (data) => {
