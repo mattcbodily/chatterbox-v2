@@ -1,6 +1,6 @@
 .message {
     height: 100vh;
-    width: calc(100% - 175px);
+    width: calc(100% - 225px);
     background-color: #221e23;
     position: relative;
 }
