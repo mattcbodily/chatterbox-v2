@@ -6,15 +6,21 @@ import './App.css';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
+
+  const getUser = (data) => {
+    setUser(data);
+    setLoggedIn(true);
+  }
 
   return (
     <div className="App">
       {loggedIn
       ? (<>
-          <SideMenu />
-          <Message />
+          <SideMenu user={user}/>
+          <Message user={user}/>
          </>)
-      : <Landing />}
+      : <Landing userFn={getUser}/>}
     </div>
   );
 }
