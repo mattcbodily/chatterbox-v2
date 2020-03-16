@@ -5,6 +5,6 @@ insert into groups (
 ) values (
     ${name},
     ${description},
-    ${private}
+    ${privateGroup}
 )
 returning group_id;

@@ -8,10 +8,10 @@ module.exports = {
         .catch(err => res.status(500).send(err))
     },
     createGroup: async(req, res) => {
-        const {id, name, description, private} = req.body,
+        const {id, name, description, privateGroup} = req.body,
               db = req.app.get('db');
 
-        let newGroup = await db.groups.create_group({name, description, private});
+        let newGroup = await db.groups.create_group({name, description, privateGroup});
 
         db.groups.user_group_join({id, groupId: newGroup[0].group_id})
         .then(() => res.sendStatus(200))
