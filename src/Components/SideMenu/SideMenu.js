@@ -6,8 +6,10 @@ export default props => {
 
     return (
         <div className='side-menu'>
-            <input value={chatSearch}/>
-            <button>+</button>
+            <div className='search-flex'>
+                <input className='search-bar' value={chatSearch}/>
+                <button className='create-group-btn'>+</button>
+            </div>
         </div>
     )
 }
