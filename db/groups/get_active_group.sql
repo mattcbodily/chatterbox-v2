@@ -1,0 +1,1 @@
+select group_name, group_description, private_group from groups where group_id = ${id};

@@ -18,3 +18,10 @@ create table if not exists user_group_join (
     user_id int references users(user_id),
     group_id int references groups(group_id)
 );
+
+create table if not exists messages (
+    message_id serial primary key,
+    group_id int references groups(group_id),
+    sender int references users(user_id),
+    message text
+);
