@@ -18,10 +18,11 @@ export default props => {
 
     let mappedGroups = groups.map((group, i) => (
         <div key={i} className='side-menu-group'>
-            <img src={group.group_image} alt={group.group_name} className='group-image'/>
+            <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
             <section>
-                <p>{group.group_name}</p>
-                <p>leedleleedlelee</p>
+                <p className='side-menu-group-name'>{group.group_name}</p>
+                <p className='side-menu-last-sender'>persons name</p>
+                <p className='side-menu-message'>leedleleedlelee</p>
             </section>
         </div>
     ))

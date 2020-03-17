@@ -43,12 +43,16 @@
 }
 
 .side-menu-group p {
-    margin: 0;
+    margin: -2px 0px 6px 0px;
 }
 
-.group-image {
+.side-menu-group-image {
     height: 60px;
     width: 60px;
     border-radius: 10px;
     margin-right: 10px;
+}
+
+.side-menu-group-name {
+    font-weight: bold;
 }
