@@ -17,7 +17,7 @@ export default props => {
     }, [])
 
     let mappedGroups = groups.map((group, i) => (
-        <div key={i} className='side-menu-group'>
+        <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
             <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
             <section>
                 <p className='side-menu-group-name'>{group.group_name}</p>
