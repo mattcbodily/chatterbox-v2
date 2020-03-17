@@ -16,6 +16,11 @@ export default props => {
         .catch(err => console.log(err))
     }, [props.user.user_id])
 
+    const handleToggle = (event) => {
+        event.preventDefault()
+        setFormView(false)
+    }
+
     let mappedGroups = groups.map((group, i) => (
         <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
             <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
@@ -34,7 +39,7 @@ export default props => {
                 <button className='create-group-btn' onClick={() => setFormView(true)}>+</button>
             </div>
                 {mappedGroups}
-                {formView ? <GroupForm user={props.user}/> : null}
+                {formView ? <GroupForm user={props.user} toggleFn={handleToggle}/> : null}
         </div>
     )
 }
