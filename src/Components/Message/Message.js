@@ -47,12 +47,14 @@ export default class Message extends Component {
         this.setState({messageInput: val})
     }
 
-    sendMessage = (message) => {
+    sendMessage = () => {
         this.socket.emit('message sent', {
-          message,
+          message: this.state.messageInput,
           sender: this.props.user.user_id,
           group: this.props.selectedGroup
         })
+
+        this.setState({messageInput: ''})
     }
 
     updateMessages(messages) {
@@ -62,9 +64,14 @@ export default class Message extends Component {
     }
 
     render(){
-        const mappedMessages = this.state.messages.map((message, i) => (
+        console.log(this.state.messages)
+        const mappedMessages = this.state.messages.map((messageData, i) => (
             <div key={i} className='message-container'>
-                lelelelel
+                <img src={messageData.image} alt={messageData.username} />
+                <section>
+                    <p className='message-sender'>{messageData.username}</p>
+                    <p>{messageData.message}</p>
+                </section>
             </div>
         ))
 
@@ -72,6 +79,7 @@ export default class Message extends Component {
             <div className='message'>
                 {mappedMessages}
                 <input className='message-input' value={this.state.messageInput} onChange={(e) => this.handleInput(e.target.value)}/>
+                <button className='send-message-btn' onClick={this.sendMessage}>Send</button>
             </div>
         )
     }

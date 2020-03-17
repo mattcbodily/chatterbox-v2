@@ -5,9 +5,34 @@
     position: relative;
 }
 
+.message-container {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    color: white;
+    box-sizing: border-box;
+    padding: 0px 3%;
+}
+
+.message-container img {
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+}
+
+.message-container p {
+    text-align: left;
+    margin: 0px 0px 8px 10px;
+}
+
+.message-sender {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
 .message-input {
     height: 45px;
-    width: 95%; 
+    width: 87%; 
     background-color: #343036;
     color: #FFFFFF;
     font-size: 1.25rem;
@@ -17,7 +42,25 @@
     margin-left: -47%;
     box-sizing: border-box;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px 0px 0px 10px;
     outline: none;
     padding: 0px 15px;
+}
+
+.send-message-btn {
+    height: 45px;
+    width: 100px;
+    background-color: #343036;
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    position: absolute;
+    bottom: 20px;
+    right: 3%;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+}
+
+/* update the color of the button hover */
+.send-message-btn:hover {
+    background-color: blue;
 }

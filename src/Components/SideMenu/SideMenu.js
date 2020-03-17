@@ -14,7 +14,7 @@ export default props => {
             setGroups(res.data)
         })
         .catch(err => console.log(err))
-    }, [])
+    }, [props.user.user_id])
 
     let mappedGroups = groups.map((group, i) => (
         <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
