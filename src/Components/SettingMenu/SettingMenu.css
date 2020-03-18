@@ -1,0 +1,15 @@
+.setting-menu {
+    height: 100vh;
+    width: 325px;
+    background-color: #221e23;
+    animation: slide 100ms linear;
+}
+
+@keyframes slide {
+    from {
+        width: 0px
+    }
+    to {
+        width: 325px;
+    }
+}

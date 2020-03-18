@@ -8,7 +8,8 @@ export default class Message extends Component {
         super(props);
         this.state = {
             messages: [],
-            messageInput: ''
+            messageInput: '',
+            settingMenuView: false
         }
     }
 
@@ -77,7 +78,7 @@ export default class Message extends Component {
 
         return(
             <div className='message'>
-                <Header selectedGroup={this.props.selectedGroup}/>
+                <Header selectedGroup={this.props.selectedGroup} toggleFn={this.props.toggleFn}/>
                 {mappedMessages}
                 <input className='message-input' value={this.state.messageInput} onChange={(e) => this.handleInput(e.target.value)}/>
                 <button className='send-message-btn' onClick={this.sendMessage}>Send</button>
