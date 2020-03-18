@@ -61,7 +61,6 @@
     border-radius: 0px 10px 10px 0px;
 }
 
-/* update the color of the button hover */
 .send-message-btn:hover {
-    background-color: blue;
+    background-color: #39B54A;
 }

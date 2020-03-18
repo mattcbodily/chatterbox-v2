@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import './Landing.css';
 
 export default props => {
     const [username, setUsername] = useState(''),
@@ -30,7 +31,8 @@ export default props => {
     }
 
     return (
-        <div>
+        <div className='landing'>
+            <h1>Welcome to Chatterbox</h1>
             {loginView
             ? (<>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
