@@ -39,6 +39,8 @@ export default props => {
                 <br/>
                 <input className='group-form-input' value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <br/>
+                <label>Add an image URL</label>
+                <br/>
                 <input className='group-form-input' value={image} onChange={(e) => setImage(e.target.value)}/>
                 <br/>
                 <label>

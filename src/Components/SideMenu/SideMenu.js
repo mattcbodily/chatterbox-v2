@@ -12,9 +12,10 @@ export default props => {
         axios.get(`/api/groups/${props.user.user_id}`)
         .then(res => {
             setGroups(res.data)
+            props.selectFn(res.data[0].group_id)
         })
         .catch(err => console.log(err))
-    }, [props.user.user_id])
+    }, [props])
 
     const getGroups = () => {
         axios.get(`/api/groups/${props.user.user_id}`)
@@ -29,35 +30,23 @@ export default props => {
         setFormView(false)
     }
 
-    let mappedGroups = groups.map((group, i) => (
-        <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
-            <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
-            <section>
-                <p className='side-menu-group-name'>{group.group_name}</p>
-                <p className='side-menu-last-sender'>persons name</p>
-                <p className='side-menu-message'>leedleleedlelee</p>
-            </section>
-        </div>
-    ))
-
     return (
         <div className='side-menu'>
             <div className='search-flex'>
                 <input className='search-bar' value={chatSearch} onChange={(e) => setChatSearch(e.target.value)}/>
                 <button className='create-group-btn' onClick={() => setFormView(true)}>+</button>
             </div>
-                {/* {mappedGroups} */}
-                {groups.map((group, i) => (
-                    <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
-                    <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
-                    <section>
-                        <p className='side-menu-group-name'>{group.group_name}</p>
-                        <p className='side-menu-last-sender'>persons name</p>
-                        <p className='side-menu-message'>leedleleedlelee</p>
-                    </section>
-                    </div>
-                ))}
-                {formView ? <GroupForm user={props.user} toggleFn={handleToggle} groupsFn={getGroups}/> : null}
+            {groups.map((group, i) => (
+                <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
+                <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
+                <section>
+                    <p className='side-menu-group-name'>{group.group_name}</p>
+                    <p className='side-menu-last-sender'>persons name</p>
+                    <p className='side-menu-message'>leedleleedlelee</p>
+                </section>
+                </div>
+            ))}
+            {formView ? <GroupForm user={props.user} toggleFn={handleToggle} groupsFn={getGroups}/> : null}
         </div>
     )
 }

@@ -64,7 +64,6 @@ export default class Message extends Component {
     }
 
     render(){
-        console.log(this.state.messages)
         const mappedMessages = this.state.messages.map((messageData, i) => (
             <div key={i} className='message-container'>
                 <img src={messageData.image} alt={messageData.username} />
