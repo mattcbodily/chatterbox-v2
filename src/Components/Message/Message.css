@@ -3,12 +3,13 @@
     width: calc(100% - 325px);
     background-color: #221e23;
     position: relative;
+    box-sizing: border-box;
+    padding-top: 25px;
 }
 
 .message-container {
-    min-height: 90px;
+    min-height: 85px;
     display: flex;
-    align-items: center;
     color: white;
     box-sizing: border-box;
     padding: 0px 3%;
@@ -22,7 +23,7 @@
 
 .message-container p {
     text-align: left;
-    margin: 0px 0px 8px 10px;
+    margin: 0px 0px 5px 10px;
 }
 
 .message-sender {

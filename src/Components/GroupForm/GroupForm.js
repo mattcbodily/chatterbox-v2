@@ -5,6 +5,7 @@ import './GroupForm.css';
 export default props => {
     const [name, setName] = useState(''),
           [description, setDescription] = useState(''),
+          [image, setImage] = useState(''),
           [privateGroup, setPrivateGroup] = useState(false);
 
     const createGroup = (event) => {
@@ -14,19 +15,21 @@ export default props => {
             id: props.user.user_id,
             name,
             description,
+            image: image || 'https://via.placeholder.com/60x60',
             privateGroup
         }
 
         axios.post('/api/groups', newGroup)
         .then(() => {
-            //get groups here
+            props.groupsFn()
+            props.toggleFn(event)
         })
         .catch(err => console.log(err))
     }
 
     return (
         <div className='group-form-opacity'>
-            <form class='group-form'>
+            <form className='group-form'>
                 <h1>Create a group</h1>
                 <label>Group Name</label>
                 <br/>
@@ -35,6 +38,8 @@ export default props => {
                 <label>What's this group about?</label>
                 <br/>
                 <input className='group-form-input' value={description} onChange={(e) => setDescription(e.target.value)}/>
+                <br/>
+                <input className='group-form-input' value={image} onChange={(e) => setImage(e.target.value)}/>
                 <br/>
                 <label>
                     <input type='checkbox' value={privateGroup} onChange={(e) => setPrivateGroup(e.target.value)}/>
