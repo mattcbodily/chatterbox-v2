@@ -1,7 +1,8 @@
 .setting-menu {
     height: 100vh;
     width: 325px;
-    background-color: #221e23;
+    background-color: #110f12;
+    color: white;
     animation: slide 100ms linear;
 }
 
