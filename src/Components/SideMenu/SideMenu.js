@@ -12,7 +12,7 @@ export default props => {
         axios.get(`/api/groups/${props.user.user_id}`)
         .then(res => {
             setGroups(res.data)
-            props.selectFn(res.data[0].group_id)
+            props.selectFn(res.data[0])
         })
         .catch(err => console.log(err))
     }, [props])
@@ -37,7 +37,7 @@ export default props => {
                 <button className='create-group-btn' onClick={() => setFormView(true)}>+</button>
             </div>
             {groups.map((group, i) => (
-                <div key={i} className='side-menu-group' onClick={() => props.selectFn(group.group_id)}>
+                <div key={i} className='side-menu-group' onClick={() => props.selectFn(group)}>
                 <img src={group.group_image} alt={group.group_name} className='side-menu-group-image'/>
                 <section>
                     <p className='side-menu-group-name'>{group.group_name}</p>

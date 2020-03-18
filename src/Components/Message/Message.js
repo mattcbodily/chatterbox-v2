@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import io from 'socket.io-client';
+import Header from '../Header/Header';
 import './Message.css';
 
 export default class Message extends Component {
@@ -22,8 +23,8 @@ export default class Message extends Component {
     }
 
     componentDidUpdate(prevProps){
-        if(prevProps.selectedGroup !== this.props.selectedGroup){
-            this.joinRoom(this.props.selectedGroup);
+        if(prevProps.selectedGroup.group_id !== this.props.selectedGroup.group_id){
+            this.joinRoom(this.props.selectedGroup.group_id);
         }
     }
 
@@ -33,7 +34,7 @@ export default class Message extends Component {
 
     joinRoom = async(id) => {
         this.socket.emit('join room', {
-            group: this.props.selectedGroup
+            group: this.props.selectedGroup.group_id
         })
     }
 
@@ -51,7 +52,7 @@ export default class Message extends Component {
         this.socket.emit('message sent', {
           message: this.state.messageInput,
           sender: this.props.user.user_id,
-          group: this.props.selectedGroup
+          group: this.props.selectedGroup.group_id
         })
 
         this.setState({messageInput: ''})
@@ -76,6 +77,7 @@ export default class Message extends Component {
 
         return(
             <div className='message'>
+                <Header selectedGroup={this.props.selectedGroup}/>
                 {mappedMessages}
                 <input className='message-input' value={this.state.messageInput} onChange={(e) => this.handleInput(e.target.value)}/>
                 <button className='send-message-btn' onClick={this.sendMessage}>Send</button>

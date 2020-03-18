@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false),
         [user, setUser] = useState({}),
-        [selectedGroup, setSelectedGroup] = useState(null);
+        [selectedGroup, setSelectedGroup] = useState({});
 
   const getUser = (data) => {
     setUser(data);
