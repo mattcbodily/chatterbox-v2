@@ -1,16 +1,15 @@
 .setting-menu {
-    height: 100vh;
-    width: 325px;
+    height: 140px;
+    width: 150px;
+    position: fixed;
+    top: 45px;
+    right: 20px;
+    border-radius: 10px;
     background-color: #110f12;
     color: white;
-    animation: slide 100ms linear;
 }
 
-@keyframes slide {
-    from {
-        width: 0px
-    }
-    to {
-        width: 325px;
-    }
+.setting-menu p {
+    font-size: 1.1rem;
+    cursor: pointer;
 }

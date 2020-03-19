@@ -17,11 +17,17 @@ function App() {
   }
 
   const selectGroup = (data) => {
-    setSelectedGroup(data)
+    setSelectedGroup(data);
   }
 
   const toggleSettingMenu = () => {
-    setSettingMenuView(!settingMenuView)
+    setSettingMenuView(!settingMenuView);
+  }
+
+  const logout = () => {
+    setUser({});
+    setSettingMenuView(false);
+    setLoggedIn(false);
   }
 
   return (
@@ -31,7 +37,7 @@ function App() {
           <SideMenu user={user} selectFn={selectGroup}/>
           <Message user={user} selectedGroup={selectedGroup} toggleFn={toggleSettingMenu}/>
           {settingMenuView
-                ? <SettingMenu toggleFn={toggleSettingMenu}/>
+                ? <SettingMenu toggleFn={toggleSettingMenu} logoutFn={logout}/>
                 : null}
          </>)
       : <Landing userFn={getUser}/>}
